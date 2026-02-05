@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 شحنتك - شحن الألعاب والتطبيقات الرقمية</title>
+<meta name="theme-color" content="#1e88e5">
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f0f2f5;}
+header{background:#1e88e5;color:white;text-align:center;padding:20px;font-size:24px;font-weight:bold;}
+nav{display:flex;justify-content:center;gap:20px;background:#1565c0;padding:10px 0;position:sticky;top:0;z-index:100;}
+nav a{color:white;text-decoration:none;font-weight:bold;cursor:pointer;}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;padding:20px;}
+.card{background:white;padding:15px;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);cursor:pointer;transition:transform 0.2s;}
+.card:hover{transform:scale(1.05);}
+.card img{width:100px;height:100px;object-fit:contain;margin-bottom:10px;}
+.card h3{margin:10px 0;font-size:16px;}
+.card button{background:#fbc02d;border:none;padding:10px 15px;border-radius:8px;font-weight:bold;cursor:pointer;transition:background 0.2s;}
+.card button:hover{background:#f9a825;}
+.offers,.admin-panel{max-width:700px;margin:20px auto;background:white;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.offer{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #ddd;}
+.offer:last-child{border-bottom:none;}
+.whatsapp-btn{background:#25d366;color:white;padding:10px 15px;border:none;border-radius:8px;font-weight:bold;text-decoration:none;transition:background 0.2s;}
+.whatsapp-btn:hover{background:#128c7e;}
+.admin-panel input,.admin-panel button,.admin-panel select{padding:10px;margin:8px 0;width:100%;border-radius:6px;border:1px solid #ccc;}
+.admin-panel button{background:#1e88e5;color:white;font-weight:bold;border:none;cursor:pointer;transition:background 0.2s;}
+.admin-panel button:hover{background:#1565c0;}
+footer{background:#1565c0;color:white;display:flex;justify-content:space-around;padding:15px 0;margin-top:20px;flex-wrap:wrap;gap:10px;}
+footer a{color:white;text-decoration:none;font-weight:bold;}
+@media(max-width:600px){nav{flex-direction:column;}footer{flex-direction:column;gap:10px;}}
+</style>
+</head>
+<body>
+
+<header>🚀 شحنتك - شحن الألعاب والتطبيقات الرقمية</header>
+
+<nav>
+<a onclick="showSection('home')">الرئيسية</a>
+<a onclick="showSection('admin')">لوحة التحكم</a>
+</nav>
+
+<section id="home" class="container"></section>
+
+<section id="offers-section" class="offers" style="display:none;">
+<h2 id="game-title" style="text-align:center;margin-bottom:20px;">العروض</h2>
+<div id="offers-list"></div>
+<button onclick="hideOffers()" style="background:#f44336;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;margin-top:15px;">عودة</button>
+</section>
+
+<section id="admin" class="admin-panel" style="display:none;">
+<h2 style="text-align:center;">لوحة التحكم</h2>
+<h3>إضافة لعبة / تطبيق جديد</h3>
+<input type="text" id="new-game-name" placeholder="اسم اللعبة أو التطبيق">
+<input type="text" id="new-game-img" placeholder="رابط الصورة (يمكن Base64)">
+<button onclick="addGame()">إضافة لعبة / تطبيق</button>
+<hr>
+<h3>تحديث العروض</h3>
+<select id="select-game"></select>
+<input type="text" id="offer-name" placeholder="اسم العرض">
+<input type="text" id="offer-price"
